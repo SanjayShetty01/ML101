@@ -34,10 +34,6 @@ So how do we calculate `a` and `b` ?
 ``` r
 calcB = function(x,y){ 
   #' calculates the slope `b` for the equation `a+bx`
-  #' The slope is calculated using the formula
-  #' 
-  #' math::
-  #' $$ b = \frac{\sum{(X_i - \overline{X}) * ( Y_i - \overline{y})}} {\sum{X_i - \overline{X}}} $$
   #' 
   #' @param x the dependent variable
   #' @param y the independent variable
@@ -63,10 +59,6 @@ calcB = function(x,y){
 ``` r
 calcA = function(x,y){
   #' Calculates intercept `b` for the equation `a+bx`
-  #' The intercept is calculated using the formula
-  #' 
-  #' math::
-  #' $$ a = \overline{y} - b * \overline{x} $$
   #' 
   #' @param x the dependent variable
   #' @param y the independent variable
@@ -88,6 +80,12 @@ calcA = function(x,y){
 
 ``` r
 linearRegression = function(x,y){
+  #' Fitting Linear Regression
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @return The fitted values
   
   values = calcA(x,y)
   
@@ -106,6 +104,13 @@ linearRegression = function(x,y){
 
 ``` r
 predictlm = function(x){
+  #' Function to predict the value
+  #' 
+  #' @param x the dependent variable
+  #' 
+  #' @return The predicted values
+  #' 
+  
   predicted = a + (b* x)
   return(predicted)
 }

@@ -29,13 +29,24 @@ So how do we calculate `a` and `b` ?
 
 ## Implementing the formulaes
 
-### Function to calculate the slope the intercept `b`
+### Function to calculate the slope `b`
 
 ``` r
-calcB = function(x,y){
+calcB = function(x,y){ 
+  #' calculates the slope `b` for the equation `a+bx`
+  #' The slope is calculated using the formula
+  #' 
+  #' math::
+  #' $$ b = \frac{\sum{(X_i - \overline{X}) * ( Y_i - \overline{y})}} {\sum{X_i - \overline{X}}} $$
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @returns A named vector, which includes slope, mean of X and Y variables
+  #' 
   meanX = mean(x)
   meanY = mean(y)
-  
+
   nemA = sum((x - meanX)*(y - meanY))
   denA = sum((x - meanY)^2)
   
@@ -51,6 +62,16 @@ calcB = function(x,y){
 
 ``` r
 calcA = function(x,y){
+  #' Calculates intercept `b` for the equation `a+bx`
+  #' The intercept is calculated using the formula
+  #' 
+  #' math::
+  #' $$ a = \overline{y} - b * \overline{x} $$
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @returns A named vector, which includes slope and intercept
   
   reqValues = calcB(x,y)
   

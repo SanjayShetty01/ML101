@@ -30,12 +30,19 @@
 #'
 #' ## Implementing the formulaes 
 #' 
-#' ### Function to calculate the slope the intercept `b`
+#' ### Function to calculate the slope `b`
 
-calcB = function(x,y){
+calcB = function(x,y){ 
+  #' calculates the slope `b` for the equation `a+bx`
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @returns A named vector, which includes slope, mean of X and Y variables
+  #' 
   meanX = mean(x)
   meanY = mean(y)
-  
+
   nemA = sum((x - meanX)*(y - meanY))
   denA = sum((x - meanY)^2)
   
@@ -49,6 +56,12 @@ calcB = function(x,y){
 #' ### Function to calculate the intercept `a`
 
 calcA = function(x,y){
+  #' Calculates intercept `b` for the equation `a+bx`
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @returns A named vector, which includes slope and intercept
   
   reqValues = calcB(x,y)
   
@@ -63,6 +76,12 @@ calcA = function(x,y){
 #' ### Function to fit a linear regression line
 
 linearRegression = function(x,y){
+  #' Fitting Linear Regression
+  #' 
+  #' @param x the dependent variable
+  #' @param y the independent variable
+  #' 
+  #' @return The fitted values
   
   values = calcA(x,y)
   
@@ -79,6 +98,13 @@ linearRegression = function(x,y){
 #' ### Function to predict the values for the fitted model
 
 predictlm = function(x){
+  #' Function to predict the value
+  #' 
+  #' @param x the dependent variable
+  #' 
+  #' @return The predicted values
+  #' 
+  
   predicted = a + (b* x)
   return(predicted)
 }

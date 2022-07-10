@@ -81,11 +81,13 @@ linearRegression = function(x,y){
   #' @param x the dependent variable
   #' @param y the independent variable
   #' 
-  #' @return The fitted values
+  #' @return vector consisting of fitted values
   
   values = calcA(x,y)
   
   # using `<<-` so that the parameters would be available for `predictlm` Function
+  
+  warning("`a` and `b` variable will be assigned to intercept and slope parameter in the global env")
   
   a <<- values['a']
   b <<- values['b']
@@ -102,7 +104,7 @@ predictlm = function(x){
   #' 
   #' @param x the dependent variable
   #' 
-  #' @return The predicted values
+  #' @return vector consisting of the predicted values
   #' 
   
   predicted = a + (b* x)
